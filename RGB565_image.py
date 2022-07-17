@@ -15,12 +15,11 @@ def wait():
         if(serialPort.in_waiting > 0):    
             i += 1        
             s = serialPort.readline()
-            s = s.split(b'\n')
-          #  print(i)
-        
+            s = s.split(b'\n')        
             if (s[0]==b'*'):
                 i = -1
-                return                
+                return   
+              
 list = [None] * length
 while(1):
     print("waiting\n")
@@ -40,26 +39,6 @@ while(1):
                     for x in range(xdim):
                         px = int.from_bytes(list[x*y], "big")
                         print(px)
-                        im.putpixel((x,y),((px&0xF800) >> 8, (px&0x07E0) >> 3, (px&0x001F) <<3))                                
-                        #print((px&0xF800) >> 8)
-                        #print((px&0x07E0) >> 3)
-                        #print((px&0x001F) <<3)               
+                        im.putpixel((x,y),((px&0xF800) >> 8, (px&0x07E0) >> 3, (px&0x001F) <<3))                                                                
                 im.show()
-                
-
-               # list = np.array(list)
-               # img = Image.fromarray(list.reshape(240,320), "L")
-                #convertedImage = cv2.cvtColor(np.array(list), cv2.COLOR_BAYER_GR2RGB)
-            
-               # img.show()
                 break
-
-
-
-one = [46888] * length
-
-        
-print((px&0xF800) >> 8)
-print((px&0x07E0) >> 3)
-print((px&0x001F) <<3)
-im.show()
